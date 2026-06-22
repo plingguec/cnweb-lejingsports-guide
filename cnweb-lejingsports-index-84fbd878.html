@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐竞体育 · 信息整理说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f9fa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 2.5rem 1.2rem;
+    }
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2.8rem 2.2rem;
+      border-radius: 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.03);
+    }
+    @media (max-width: 540px) {
+      body { padding: 1.2rem 0.8rem; }
+      .page { padding: 2rem 1.2rem; border-radius: 20px; }
+    }
+
+    /* 开场短句 —— 留空呼吸感 */
+    .opening {
+      font-size: 1.8rem;
+      font-weight: 350;
+      letter-spacing: 0.04em;
+      color: #1a2a3a;
+      margin-bottom: 0.2rem;
+      line-height: 1.3;
+      border-left: 3px solid #d4dce5;
+      padding-left: 1.2rem;
+    }
+    @media (max-width: 480px) {
+      .opening { font-size: 1.5rem; padding-left: 0.9rem; }
+    }
+
+    /* 承接段落 */
+    .intro-text {
+      margin: 1.8rem 0 2.2rem 0;
+      font-size: 1rem;
+      color: #2b3a4a;
+      text-align: left;
+    }
+    .intro-text p {
+      margin-bottom: 1rem;
+    }
+    .intro-text a {
+      color: #1e3b5c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.15s ease;
+    }
+    .intro-text a:hover {
+      color: #0b1f30;
+    }
+
+    /* 特点列表 —— 卡片化，极简 */
+    .feature-list {
+      list-style: none;
+      margin: 2.4rem 0 2.6rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.2rem;
+    }
+    .feature-list li {
+      flex: 1 1 180px;
+      background: #f3f5f8;
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      color: #1f2b39;
+      line-height: 1.5;
+      border: 1px solid #e4e9ef;
+      transition: background 0.15s;
+    }
+    .feature-list li strong {
+      display: block;
+      font-weight: 520;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+      color: #0f1f2e;
+    }
+    .feature-list li:hover {
+      background: #eaeef4;
+    }
+
+    /* 温和结尾 —— 短段落 + 引用感 */
+    .closing-note {
+      margin-top: 2.8rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e7ed;
+      font-size: 0.95rem;
+      color: #3e4d5c;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+    .closing-note .left {
+      max-width: 70%;
+    }
+    .closing-note .right {
+      font-size: 0.88rem;
+      color: #5b6b7c;
+    }
+    .closing-note a {
+      color: #1e3b5c;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+    .closing-note a:hover {
+      color: #0b1f30;
+    }
+
+    /* 小标题层级 */
+    h2 {
+      font-weight: 450;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+      margin: 2.4rem 0 0.6rem 0;
+      color: #162330;
+      border-bottom: 1px solid #e6ecf2;
+      padding-bottom: 0.25rem;
+    }
+    h2:first-of-type {
+      margin-top: 0.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e9eef3;
+      margin: 2.2rem 0 1.6rem;
+    }
+
+    .faq-block {
+      margin: 1.2rem 0 0.2rem;
+    }
+    .faq-item {
+      margin-bottom: 0.7rem;
+    }
+    .faq-item strong {
+      font-weight: 500;
+      color: #1b2c3d;
+      display: inline-block;
+      margin-right: 0.4rem;
+    }
+    .faq-item span {
+      color: #2f4052;
+    }
+    .scene-note {
+      background: #f2f5f9;
+      padding: 1.2rem 1.4rem;
+      border-radius: 20px;
+      margin: 1.8rem 0 1.2rem;
+      font-size: 0.95rem;
+      color: #1d2e40;
+      border-left: 3px solid #bcc9d9;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 开场短句 -->
+  <div class="opening">
+    从信息碎片到结构索引
+  </div>
+
+  <!-- 承接段落：资料整理的角度 -->
+  <div class="intro-text">
+    <p>
+      当你在多个标签页之间切换、试图理清一个平台的架构、赛事种类或内容分类时，一份有条理的资料汇总往往比散落的截图更有价值。<a href="https://cnweb-lejingsports.com">乐竞体育</a> 所涵盖的信息维度并不单一，从项目类型到更新动态，从界面布局到常见问题，都可以通过逐层整理形成一个可复用的索引。下面这份说明基于常规公开信息归纳而成，侧重于条目化梳理，不做主观延伸。
+    </p>
+    <p>
+      本文档以资料卡片和短问答的形式呈现，省去冗余描述，只保留分类框架与关键节点。如有更深层的查阅需求，可直接参考平台本身的结构。
+    </p>
+  </div>
+
+  <!-- 特点列表：卡片式，每个条目一个维度 -->
+  <ul class="feature-list">
+    <li><strong>项目目录</strong>赛事、电竞赛事、真人娱乐、棋牌、彩票、电子游艺 —— 大类分明，子类可展开。</li>
+    <li><strong>更新节奏</strong>赛事列表与赔率变动通常保持分钟级同步，历史数据可回溯近一周。</li>
+    <li><strong>界面结构</strong>顶部导航为一级入口，中部为动态推荐区，底部为合规说明与帮助链接。</li>
+    <li><strong>辅助功能</strong>搜索栏支持模糊匹配，收藏夹可自定义标签，账单记录保留近三个月明细。</li>
+    <li><strong>多端适配</strong>桌面端与移动端布局分别优化，移动端采用底部 tab 与横向滚动卡片。</li>
+    <li><strong>语言选项</strong>主要界面支持简体中文及英文，部分游戏内嵌单独语言切换。</li>
+  </ul>
+
+  <!-- 小标题：场景说明 -->
+  <h2>常见查阅场景</h2>
+  <div class="scene-note">
+    <ul style="margin-left: 1.1rem; list-style: disc; color: #2f4052; padding-left: 0.2rem;">
+      <li>新用户寻找某类赛事：可直接使用搜索或按左侧分类逐级展开。</li>
+      <li>对比不同项目的规则说明：每个游戏详情页均配有简要规则与返回索引链接。</li>
+      <li>查看近期活动或公告：活动入口常置于首页信息流第三至第五位，也可在“帮助中心”中按时间排序检索。</li>
+    </ul>
+  </div>
+
+  <!-- FAQ 摘要（非完整列表，仅做节选） -->
+  <h2>FAQ 摘要 · 节选</h2>
+  <div class="faq-block">
+    <div class="faq-item"><strong>Q：</strong><span>如何快速找到某个比赛的赔率变化？<br>进入对应赛事详情页，选择“赔率走势”标签，即可查看最近24小时的变化曲线。</span></div>
+    <div class="faq-item"><strong>Q：</strong><span>账户记录最多能查多久？<br>常规账单保留三个月，投注记录保留六个月，更早的记录可通过申请导出（部分格式支持 CSV）。</span></div>
+    <div class="faq-item"><strong>Q：</strong><span>移动端与桌面端功能是否完全一致？<br>核心功能（投注、查看、搜索、账户管理）一致，但部分高级筛选与报表功能仅桌面端提供。</span></div>
+  </div>
+
+  <!-- 温和结尾：带链接句子（自然嵌入），不含“进入”“点击”等词 -->
+  <div class="closing-note">
+    <div class="left">
+      以上整理基于公开界面与通用使用习惯，更详细的分类与数据可直接参考 <a href="https://cnweb-lejingsports.com">乐竞体育</a> 的导航与帮助页面。
+    </div>
+    <div class="right">
+      索引版本 · 2025
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
