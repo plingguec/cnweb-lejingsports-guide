@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从一处入口，理解世界杯——我们的索引故事</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background-color: #f7f5f2;
+      color: #1e1e1e;
+      line-height: 1.7;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #1a2f44 100%);
+      color: #e8edf3;
+      padding: 5rem 1.5rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #e8b84b, #d99f2c, #e8b84b);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0.6rem auto 0;
+      color: #c5d0de;
+      font-weight: 350;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      margin-top: 1.8rem;
+      padding: 0.45rem 1.6rem;
+      border: 1px solid rgba(232, 184, 75, 0.4);
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #e8b84b;
+      background: rgba(232, 184, 75, 0.08);
+      letter-spacing: 0.6px;
+      backdrop-filter: blur(3px);
+    }
+
+    /* 浅色正文区 */
+    .content-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4.5rem;
+    }
+
+    .intro-sentence {
+      font-size: 1.25rem;
+      font-weight: 410;
+      color: #1e2a36;
+      border-left: 4px solid #d99f2c;
+      padding-left: 1.3rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .intro-sentence a,
+    .body-text a {
+      color: #b57c1b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s, background 0.15s;
+    }
+
+    .intro-sentence a:hover,
+    .body-text a:hover {
+      color: #7a5713;
+      background: #f0e5d2;
+      padding: 0 0.1rem;
+      border-radius: 2px;
+    }
+
+    .body-text {
+      margin-bottom: 2.8rem;
+      font-size: 1rem;
+      color: #2b2b2b;
+    }
+
+    .body-text p {
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2rem;
+      margin: 2.5rem 0 2.8rem;
+    }
+
+    .feature-card {
+      flex: 1 1 200px;
+      background: #ffffff;
+      padding: 1.5rem 1.4rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.04);
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.2s, transform 0.2s ease;
+      background: #fefcf9;
+    }
+
+    .feature-card:hover {
+      border-bottom-color: #d99f2c;
+      transform: translateY(-3px);
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 540;
+      color: #1f2b38;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .feature-card h3::before {
+      content: "—";
+      color: #d99f2c;
+      font-weight: 300;
+      margin-right: 0.2rem;
+    }
+
+    .feature-card p {
+      font-size: 0.92rem;
+      color: #4b4b4b;
+      line-height: 1.6;
+    }
+
+    .scene-note {
+      background: #f2efe9;
+      padding: 1.6rem 1.8rem;
+      border-radius: 24px;
+      margin: 2.2rem 0 2.6rem;
+      border-left: 6px solid #b68a3c;
+    }
+
+    .scene-note p {
+      margin-bottom: 0.6rem;
+    }
+
+    .scene-note strong {
+      color: #1e2f3f;
+    }
+
+    .faq-mini {
+      margin: 2.6rem 0 1.2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #dad5cc;
+      padding-bottom: 0.7rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #1e2a36;
+      cursor: pointer;
+      padding: 0.25rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-mini summary::before {
+      content: "+";
+      display: inline-block;
+      width: 1.4rem;
+      color: #b88a38;
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-right: 0.3rem;
+    }
+
+    .faq-mini details[open] summary::before {
+      content: "–";
+    }
+
+    .faq-mini .answer {
+      padding: 0.6rem 0 0.2rem 1.8rem;
+      color: #3f3f3f;
+      font-size: 0.95rem;
+    }
+
+    .closing {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ddd8cf;
+      font-size: 0.95rem;
+      color: #5b5b5b;
+      text-align: center;
+    }
+
+    .closing a {
+      color: #b57c1b;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .closing a:hover {
+      color: #7a5713;
+      background: #f0e5d2;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 3.5rem 1.25rem 3rem;
+      }
+
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .content-wrapper {
+        padding: 2rem 1.2rem 3rem;
+      }
+
+      .intro-sentence {
+        font-size: 1.05rem;
+      }
+
+      .feature-grid {
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>一个关于入口的故事</h1>
+    <p>那些年我们追过的世界杯，总有一个地方让你安静地找到一切。</p>
+    <span class="tagline">从索引到记忆 · 2026 在路上</span>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="intro-sentence">
+      不论你是资深球迷，还是偶尔被朋友拉来看一场淘汰赛——当你想理清赛程、球队、举办城市的信息时，
+      一个有条理的起点往往比收藏夹里的一百个标签页更可靠。
+      这里就是这样一个安静的索引：<a href="https://index-news-fifa2026.com">世界杯</a>，把新闻与信息梳理成更顺手的脉络。
+    </div>
+
+    <div class="body-text">
+      <p>过去几届大赛，我们习惯于在各个平台之间跳转，刷新、等待、再刷新。尤其在赛事密集的日子里，碎片信息像雨点一样落下来。也许你只需要一个地方——不追求即时推送，不制造焦虑倒计时，而是把球队动态、场馆进度、票务提醒和周边故事放在一个干净的结构里。</p>
+      <p>这个想法并不复杂：把「世界杯」当作一个值得被认真查阅的主题，而非仅仅是一场又一场的热搜。在 <strong>index-news-fifa2026</strong> 的页面上，你能找到的不只是标题，还有组织好的上下文。</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>跨赛事归档</h3>
+        <p>从预选赛到决赛圈，保留过去两届关键数据，也跟踪 2026 最新动态。赛程、分组、主办城市一页直达。</p>
+      </div>
+      <div class="feature-card">
+        <h3>场景化阅读</h3>
+        <p>不是干瘪的链接列表。每个模块按「赛前·赛中·场外」组织，无论是查对手还是找观赛攻略，都更顺手。</p>
+      </div>
+      <div class="feature-card">
+        <h3>低干扰·高密度</h3>
+        <p>无弹窗、无自动播放视频、无横幅倒计时。页面重心放在信息本身，配色和排版为长时间阅读设计。</p>
+      </div>
+    </div>
+
+    <div class="scene-note">
+      <p><strong>一个典型的晚上</strong> —— 你打开页面，先扫一眼最新的小组积分变化，然后点进某支球队的专题页看看大名单传闻。不需要登录，不需要订阅弹窗。所有的链接都干净地躺在那里，像一本翻开的笔记本。</p>
+      <p>偶尔你会留意到页面角落的「常见问题」板块，里面整理了很多新手也会问的事：比如怎么区分官方渠道和二手票务，或者某个城市的地铁离体育场有多远。</p>
+    </div>
+
+    <div class="faq-mini">
+      <details>
+        <summary>这个索引页面和普通新闻网站有什么不同？</summary>
+        <div class="answer">它的重心是「整理」而非「生产」。我们筛选并归类来自多个公开来源的信息，让你不需要自己在十个窗口间来回切换。页面本身不发布独家新闻，但力求让每条链接的上下文都清晰可辨。</div>
+      </details>
+      <details>
+        <summary>世界杯期间会更新很频繁吗？</summary>
+        <div class="answer">更新节奏跟随赛事阶段：预选赛时期每周梳理一次，决赛圈期间基本每天同步赛果与前瞻。所有更新都会在首页标注时间戳，方便你判断信息新鲜度。</div>
+      </details>
+      <details>
+        <summary>移动端浏览体验如何？</summary>
+        <div class="answer">完全适配手机与平板。卡片布局会随屏幕宽度自动调整，触控区域也留了充足间距。在通勤路上查一场比赛的阵容，体验和桌面端一样流畅。</div>
+      </details>
+    </div>
+
+    <div class="closing">
+      说到底，我们只是在用笨拙但真诚的方式，把一个主题做深一点。<br>
+      如果你也喜欢这样的节奏，不妨把 <a href="https://index-news-fifa2026.com">世界杯</a> 加入书签——下次想安静地了解赛事时，它会在这里。
+    </div>
+  </div>
+</body>
+</html>
